@@ -12,12 +12,12 @@ import android.widget.TextView;
 public class MobileArrayAdapter extends ArrayAdapter<String> {
 
     private final Context context;
-    private final String[] values;
+    private final String[] cars;
 
-    public MobileArrayAdapter(Context context, String[] values) {
-        super(context, R.layout.list_image, values);
+    public MobileArrayAdapter(Context context, String[] cars) {
+        super(context, R.layout.list_image, cars);
         this.context = context;
-        this.values = values;
+        this.cars = cars;
     }
 
     @Override
@@ -28,29 +28,28 @@ public class MobileArrayAdapter extends ArrayAdapter<String> {
         View rowView = inflater.inflate(R.layout.list_image, parent, false);
         TextView textView = (TextView) rowView.findViewById(R.id.label);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.car);
-        textView.setText(values[position]);
+        textView.setText(cars[position]);
 
         // Change icon based on name
-        setImage(values[position], imageView);
+        setImage(cars[position], imageView);
 
         return rowView;
     }
 
-    public static void setImage(String value, ImageView imageView) {
-        String s = value;
+    public static void setImage(String carName, ImageView imageView) {
 
-        if (s.equals("hyundai")) {
+        if (carName.equals("hyundai")) {
             imageView.setImageResource(R.drawable.hyundai);
-        } else if (s.equals("land_rover")) {
+        } else if (carName.equals("land_rover")) {
             imageView.setImageResource(R.drawable.land_rover);
-        } else if (s.equals("maserati")) {
+        } else if (carName.equals("maserati")) {
             imageView.setImageResource(R.drawable.maserati);
-        } else if(s.equals("mercedez")){
+        } else if(carName.equals("mercedez")){
             imageView.setImageResource(R.drawable.mercedez);
-        } else if (s.equals("suzuki")) {
+        } else if (carName.equals("suzuki")) {
             imageView.setImageResource(R.drawable.suzuki);
 
-        } else if (s.equals("toyota")) {
+        } else if (carName.equals("toyota")) {
             imageView.setImageResource(R.drawable.toyota);
 
         }
